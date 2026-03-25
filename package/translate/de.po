@@ -1,0 +1,49 @@
+# German translation for Patient Timer
+# Copyright (C) 2025
+# This file is distributed under the same license as the ptimer package.
+# Christian González <christian.gonzalez@nerdocs.at>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ptimer 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-25 16:00+0100\n"
+"PO-Revision-Date: 2025-03-25 16:00+0100\n"
+"Last-Translator: Christian González <christian.gonzalez@nerdocs.at>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: main.qml:80
+msgid "Click to reset timer"
+msgstr "Zum Zurücksetzen klicken"
+
+#: configGeneral.qml:17
+msgid "Update interval (ms):"
+msgstr "Aktualisierungsintervall (ms):"
+
+#: configGeneral.qml:29
+msgid "Warning threshold (minutes):"
+msgstr "Warnschwelle (Minuten):"
+
+#: configGeneral.qml:47
+msgid "Warning color:"
+msgstr "Warnfarbe:"
+
+#: configGeneral.qml:70
+msgid "Yellow"
+msgstr "Gelb"
+
+#: configGeneral.qml:84
+msgid "Critical threshold (minutes):"
+msgstr "Kritische Schwelle (Minuten):"
+
+#: configGeneral.qml:102
+msgid "Critical color:"
+msgstr "Kritische Farbe:"
+
+#: configGeneral.qml:125
+msgid "Red"
+msgstr "Rot"

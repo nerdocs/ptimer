@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name=""/>
+
+  <group name="General">
+    <entry name="updateInterval" type="Int">
+      <default>1000</default>
+      <label>Update interval in milliseconds</label>
+    </entry>
+    <entry name="warningThreshold" type="Int">
+      <default>600</default>
+      <label>Warning threshold in minutes</label>
+    </entry>
+    <entry name="criticalThreshold" type="Int">
+      <default>900</default>
+      <label>Critical threshold in minutes</label>
+    </entry>
+    <entry name="warningColor" type="String">
+      <default>#FFEB3B</default>
+      <label>Warning color</label>
+    </entry>
+    <entry name="criticalColor" type="String">
+      <default>#F44336</default>
+      <label>Critical color</label>
+    </entry>
+  </group>
+</kcfg>

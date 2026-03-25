@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=Patient Timer
+Name[de]=Patienten-Timer
+Comment=Track consultation time with a simple click-to-reset timer
+Comment[de]=Patienten-Timer - Die Beratungszeit mit einem einfachen Timer verfolgen - zum Zurücksetzen per Klick
+Icon=chronometer
+Type=Service
+X-KDE-ServiceTypes=Plasma/Applet
+X-KDE-PluginInfo-Author=Christian González
+X-KDE-PluginInfo-Email=christian.gonzalez@nerdocs.at
+X-KDE-PluginInfo-Name=org.nerdocs.ptimer
+X-KDE-PluginInfo-Version=0.1.0
+X-KDE-PluginInfo-Website=https://github.com/nerdocs/ptimer
+X-KDE-PluginInfo-Category=Utilities
+X-KDE-PluginInfo-License=MIT
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/main.qml
+X-Plasma-API-Minimum-Version=6.0

@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "christian.gonzalez@nerdocs.at",
+                "Name": "Christian González"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Patient timer - Track consultation time with a simple click-to-reset timer",
+        "Description[de]": "Patienten-Timer - Die Beratungszeit mit einem einfachen Timer verfolgen - zum Zurücksetzen per Klick",
+        "Icon": "chronometer",
+        "Id": "org.nerdocs.ptimer",
+        "License": "MIT",
+        "Name": "Patient Timer",
+        "Name[de]": "Patienten-Timer",
+        "Version": "0.1.0",
+        "Website": "https://github.com/nerdocs/ptimer",
+        "EnabledByDefault": true
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
