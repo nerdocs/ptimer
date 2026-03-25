@@ -26,8 +26,7 @@ KCM.SimpleKCM {
 
         QQC2.SpinBox {
             id: warningThresholdSpinBox
-            Kirigami.FormData.label: i18n("Warning threshold (seconds):")
-            from: 0
+            Kirigami.FormData.label: i18n("Warning threshold (minutes):")
             to: 86400
             stepSize: 30
 
@@ -81,8 +80,7 @@ KCM.SimpleKCM {
 
         QQC2.SpinBox {
             id: criticalThresholdSpinBox
-            Kirigami.FormData.label: i18n("Critical threshold (seconds):")
-            from: 0
+            Kirigami.FormData.label: i18n("Critical threshold (minuts):")
             to: 86400
             stepSize: 30
 

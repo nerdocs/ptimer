@@ -68,10 +68,10 @@ kpackagetool6 --remove org.nerdocs.ptimer
 
 Right-click the widget and select "Configure Patient Timer" to adjust:
 
-- **Update interval**: How often the timer updates (default: 1000ms)
-- **Warning threshold**: Time in seconds before background turns yellow (default: 300s / 5 minutes)
+- **Update interval**: How often the timer updates (default: 1000ms)0
+- **Warning threshold**: Time in seconds before background turns yellow (default: 600s / 10 minutes)
 - **Warning color**: Color for warning state (default: #FFEB3B - yellow)
-- **Critical threshold**: Time in seconds before background turns red (default: 600s / 10 minutes)
+- **Critical threshold**: Time in seconds before background turns red (default: 900s / 15 minutes)
 - **Critical color**: Color for critical state (default: #F44336 - red)
 
 ## Translations

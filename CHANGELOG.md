@@ -17,13 +17,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Compact representation for panel integration
 - Full representation for desktop widget
 - Configuration dialog with time and color settings
-- German (de) translation support
 - English (en) as default language
+- German (de) translation support
 - KDE Plasma 6 compatibility
 
 ### Features
 - Update interval configuration (default: 1000ms)
-- Warning threshold (default: 5 minutes / 300 seconds)
-- Critical threshold (default: 10 minutes / 600 seconds)
+- Warning threshold (default: 10 minutes / 600 seconds)
+- Critical threshold (default: 15 minutes / 900 seconds)
 - Dynamic widget width based on content
 - Tooltip on hover with reset instructions

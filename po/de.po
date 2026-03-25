@@ -26,8 +26,8 @@ msgid "Update interval (ms):"
 msgstr "Aktualisierungsintervall (ms):"
 
 #: package/contents/ui/configGeneral.qml:29
-msgid "Warning threshold (seconds):"
-msgstr "Warnschwelle (Sekunden):"
+msgid "Warning threshold (minutes):"
+msgstr "Warnschwelle (Minuten):"
 
 #: package/contents/ui/configGeneral.qml:47
 msgid "Warning color:"
