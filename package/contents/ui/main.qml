@@ -10,6 +10,8 @@ PlasmoidItem {
 
     property int elapsedSeconds: 0
     property int updateInterval: plasmoid.configuration.updateInterval
+    property bool isPaused: false
+    property bool flashWhenPaused: plasmoid.configuration.flashWhenPaused
 
     // Threshold settings
     property int warningThreshold: plasmoid.configuration.warningThreshold
@@ -36,10 +38,22 @@ PlasmoidItem {
     Timer {
         id: updateTimer
         interval: root.updateInterval
-        running: true
+        running: !root.isPaused
         repeat: true
         onTriggered: {
             root.elapsedSeconds++
+        }
+    }
+
+    // Timer for flashing effect when paused
+    Timer {
+        id: flashTimer
+        interval: 500
+        running: root.isPaused && root.flashWhenPaused
+        repeat: true
+        property bool visible: true
+        onTriggered: {
+            visible = !visible
         }
     }
 
@@ -66,35 +80,62 @@ PlasmoidItem {
             radius: 4
         }
 
-        MouseArea {
+        RowLayout {
             anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
+            spacing: Kirigami.Units.smallSpacing
 
-            onClicked: {
-                root.resetTimer()
+            PlasmaComponents.Button {
+                Layout.leftMargin: Kirigami.Units.smallSpacing
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                Layout.alignment: Qt.AlignVCenter
+
+                icon.name: root.isPaused ? "media-playback-start" : "media-playback-pause"
+
+                onClicked: {
+                    root.isPaused = !root.isPaused
+                    if (root.isPaused) {
+                        flashTimer.visible = true
+                    }
+                }
+
+                PlasmaComponents.ToolTip {
+                    text: root.isPaused ? i18n("Resume timer") : i18n("Pause timer")
+                }
             }
 
-            hoverEnabled: true
+            MouseArea {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                cursorShape: Qt.PointingHandCursor
 
-            PlasmaComponents.ToolTip {
-                text: i18n("Click to reset timer")
-            }
+                onClicked: {
+                    root.resetTimer()
+                }
 
-            PlasmaComponents.Label {
-                id: timerLabel
-                anchors.centerIn: parent
-                text: root.formatTime(root.elapsedSeconds)
-                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 3
-                font.bold: true
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+                hoverEnabled: true
+
+                PlasmaComponents.ToolTip {
+                    text: i18n("Click to reset timer")
+                }
+
+                PlasmaComponents.Label {
+                    id: timerLabel
+                    anchors.centerIn: parent
+                    text: root.formatTime(root.elapsedSeconds)
+                    font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 3
+                    font.bold: true
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    opacity: root.isPaused ? (root.flashWhenPaused ? (flashTimer.visible ? 1.0 : 0.3) : 0.5) : 1.0
+                }
             }
         }
     }
 
     // Compact representation (for panel)
     compactRepresentation: Item {
-        Layout.preferredWidth: timerText.implicitWidth + Kirigami.Units.smallSpacing * 2
+        Layout.preferredWidth: compactRow.implicitWidth + Kirigami.Units.smallSpacing * 2
         Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
         Rectangle {
@@ -103,20 +144,48 @@ PlasmoidItem {
             radius: 4
         }
 
-        PlasmaComponents.Label {
-            id: timerText
+        RowLayout {
+            id: compactRow
             anchors.centerIn: parent
-            text: root.formatTime(root.elapsedSeconds)
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 1.5
-            font.bold: true
-        }
+            spacing: Kirigami.Units.smallSpacing
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                root.resetTimer()
+            PlasmaComponents.Button {
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 1.5
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 1.5
+
+                icon.name: root.isPaused ? "media-playback-start" : "media-playback-pause"
+
+                onClicked: {
+                    root.isPaused = !root.isPaused
+                    if (root.isPaused) {
+                        flashTimer.visible = true
+                    }
+                }
+
+                PlasmaComponents.ToolTip {
+                    text: root.isPaused ? i18n("Resume timer") : i18n("Pause timer")
+                }
             }
-            cursorShape: Qt.PointingHandCursor
+
+            PlasmaComponents.Label {
+                id: timerText
+                text: root.formatTime(root.elapsedSeconds)
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 1.5
+                font.bold: true
+                opacity: root.isPaused ? (root.flashWhenPaused ? (flashTimer.visible ? 1.0 : 0.3) : 0.5) : 1.0
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        root.resetTimer()
+                    }
+                    cursorShape: Qt.PointingHandCursor
+
+                    PlasmaComponents.ToolTip {
+                        text: i18n("Click to reset timer")
+                    }
+                }
+            }
         }
     }
 }

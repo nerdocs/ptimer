@@ -73,6 +73,7 @@ Right-click the widget and select "Configure Patient Timer" to adjust:
 - **Warning color**: Color for warning state (default: #FFEB3B - yellow)
 - **Critical threshold**: Time in seconds before background turns red (default: 900s / 15 minutes)
 - **Critical color**: Color for critical state (default: #F44336 - red)
+- **Flash when paused**: if enabled, time flashes when paused.
 
 ## Translations
 

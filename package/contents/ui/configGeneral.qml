@@ -10,6 +10,7 @@ KCM.SimpleKCM {
     property alias cfg_criticalThreshold: criticalThresholdSpinBox.value
     property string cfg_warningColor
     property string cfg_criticalColor
+    property alias cfg_flashWhenPaused: flashWhenPausedCheckBox.checked
 
     Kirigami.FormLayout {
         QQC2.SpinBox {
@@ -18,6 +19,11 @@ KCM.SimpleKCM {
             from: 100
             to: 10000
             stepSize: 100
+        }
+
+        QQC2.CheckBox {
+            id: flashWhenPausedCheckBox
+            text: i18n("Flash time when paused")
         }
 
         Item {

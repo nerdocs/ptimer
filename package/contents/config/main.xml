@@ -26,5 +26,9 @@
       <default>#F44336</default>
       <label>Critical color</label>
     </entry>
+    <entry name="flashWhenPaused" type="Bool">
+      <default>true</default>
+      <label>Flash when paused</label>
+    </entry>
   </group>
 </kcfg>
