@@ -30,3 +30,4 @@ ptimer_widget.py
 *.bak
 *.tmp
 .DS_Store
+*.tar.gz
