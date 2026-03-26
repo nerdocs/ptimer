@@ -42,16 +42,23 @@ sudo make install
 
 ### Using kpackagetool6
 
+If kpackagetool6 is not installed yet, install it (on Debian 13+/Ubuntu 24.04+) with:
+
+```bash
+sudo apt install kpackagetool6
+```
+
+#### Install:
 ```bash
 kpackagetool6 --install package/
 ```
 
-To update:
+#### Update:
 ```bash
 kpackagetool6 --upgrade package/
 ```
 
-To uninstall:
+#### Uninstall:
 ```bash
 kpackagetool6 --remove org.nerdocs.ptimer
 ```
