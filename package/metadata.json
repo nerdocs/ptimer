@@ -14,7 +14,7 @@
         "License": "MIT",
         "Name": "Patient Timer",
         "Name[de]": "Patienten-Timer",
-        "Version": "0.2.0",
+        "Version": "1.0.0",
         "Website": "https://github.com/nerdocs/ptimer",
         "EnabledByDefault": true
     },
