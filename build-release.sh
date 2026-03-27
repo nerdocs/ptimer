@@ -36,12 +36,12 @@ fi
 # Project name
 PROJECT_NAME="ptimer"
 ARCHIVE_NAME="${PROJECT_NAME}-${VERSION}"
-TARBALL="${ARCHIVE_NAME}.tar.gz"
+PLASMOID="${ARCHIVE_NAME}.plasmoid"
 
 echo "Building release package..."
 echo "Project: $PROJECT_NAME"
 echo "Version: $VERSION"
-echo "Archive: $TARBALL"
+echo "Archive: $PLASMOID"
 echo ""
 
 # Check for uncommitted changes
@@ -54,20 +54,20 @@ if ! git diff-index --quiet HEAD --; then
     fi
 fi
 
-# Create git archive
-echo "Creating archive from git..."
-git archive --format=tar.gz \
-    --prefix="${ARCHIVE_NAME}/" \
-    --output="$TARBALL" \
-    HEAD:package
+# Create .plasmoid package (zip of package/ contents, files at root level)
+echo "Creating .plasmoid package from git..."
+TMPDIR=$(mktemp -d)
+git archive HEAD:package | tar -x -C "$TMPDIR"
+(cd "$TMPDIR" && zip -r "$PROJECT_ROOT/$PLASMOID" .)
+rm -rf "$TMPDIR"
 
-if [ -f "$TARBALL" ]; then
-    SIZE=$(du -h "$TARBALL" | cut -f1)
+if [ -f "$PLASMOID" ]; then
+    SIZE=$(du -h "$PLASMOID" | cut -f1)
     echo ""
-    echo "✓ Successfully created: $TARBALL ($SIZE)"
+    echo "✓ Successfully created: $PLASMOID ($SIZE)"
     echo ""
     echo "Next steps:"
-    echo "1. Test the package: tar -tzf $TARBALL"
+    echo "1. Test the package: unzip -l $PLASMOID"
     echo "2. Upload to KDE Store: https://store.kde.org"
     echo "3. See KDE_STORE.md for detailed instructions"
 else

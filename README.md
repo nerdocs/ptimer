@@ -30,6 +30,12 @@ A KDE Plasma widget for tracking patient consultation time.
 4. Search for "Patient Timer"
 5. Click "Install"
 
+Alternatively, download the `.plasmoid` file from the KDE Store and install it manually:
+
+```bash
+kpackagetool6 --type Plasma/Applet --install ptimer-1.0.0.plasmoid
+```
+
 ### From Source Using CMake
 
 ```bash
